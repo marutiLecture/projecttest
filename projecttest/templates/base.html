@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django App{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block heading %}Welcome to My Django App{% endblock %}</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        <p>This is the main content of the page.</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ year }} My Django App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
