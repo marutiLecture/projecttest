@@ -4,27 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Django App{% endblock %}</title>
+    
+    <!-- Include Bootstrap CSS and JavaScript from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <style>
+        /* Style the navigation bar links */
+        .nav-link {
+            text-decoration: none;
+            color: #fff; /* Change this color to your desired link color */
+            transition: color 0.3s; /* Add smooth color transition */
+        }
+
+        /* Change link color on hover */
+        .nav-link a:hover {
+            color: #ffc107; /* Change this color to your desired hover color */
+        }
+
+        /* Style individual navigation items */
+        .nav-link .nav-item {
+            margin-right: 20px; /* Add spacing between nav-items */
+        }
+
+        /* Style the active navigation item */
+        .nav-link .nav-item.active a {
+            color: #ffc107; /* Change this color to your desired active link color */
+            font-weight: bold; /* Add bold font for the active link */
+        }
+    </style>
+
 </head>
 <body>
-    <header>
+    <header class="bg-dark text-white p-3 animate__animated animate__fadeIn">
         <h1>{% block heading %}Welcome to My Django App{% endblock %}</h1>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
+    <nav class="bg-secondary py-2 animate__animated animate__fadeIn">
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
         </ul>
     </nav>
 
-    <main>
+    <main class="p-4 animate__animated animate__fadeIn">
         {% block content %}
-        <p>This is the main content of the page.</p>
+        <p class="lead">This is the main content of the page.</p>
         {% endblock %}
     </main>
 
-    <footer>
+    <footer class="bg-dark text-white p-3 text-center animate__animated animate__fadeIn">
         <p>&copy; {{ year }} My Django App. All rights reserved.</p>
     </footer>
 </body>
